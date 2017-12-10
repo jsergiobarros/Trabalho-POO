@@ -7,19 +7,10 @@ public class Compra
     private double valorAPagar;
     private double valorPago;
     
-    public void setValorAPagar(double a)
-    {
-        this.valorAPagar = a;        
-    }
-    
-    public void setValorPago(double a)
-    {
-        this.valorPago = a;
-    }
-    
     public double getValorAPagar()
     {
-        return this.valorAPagar;
+        Produto p1 = new Produto();
+        return this.valorAPagar = p1.getPrecoDeVenda();
     }
     
     public double getValorPago()
@@ -29,11 +20,12 @@ public class Compra
     
     public double valorDaCompra(Produto ... objs)
     {
+        Compra c1 = new Compra();
         if(objs.length > 0)
         {
             for(int i = 0; i <= objs.length; i++ )
             {
-                this.valorAPagar = objs[i].getPrecoDeVenda() + this.valorAPagar;
+                //c1.getValorAPagar() = c1.getValorAPagar() + objs[i].getPrecoDeVenda();
             }
         }
         else

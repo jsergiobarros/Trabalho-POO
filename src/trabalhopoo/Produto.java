@@ -4,9 +4,34 @@ public class Produto
     private String nome;
     private String fornecedor;
     private String marca;
+    private int quantidade;
     private double precoDeCusto;
     private double precoDeVenda;
+    
+    public Produto(String no, String forn, String marca, int quantidade,double pcusto,double pvenda)
+    {
+        this.nome = no;
+        this.fornecedor = forn;
+        this.marca = marca;
+        this.quantidade = quantidade;
+        this.precoDeCusto = pcusto;
+        this.precoDeVenda = pvenda;
+    }
+    
+    public Produto()
+    {
+    }
+    
+    public int getQuantidade() 
+    {
+        return quantidade;
+    }
 
+    public void setQuantidade(int quantidade) 
+    {
+        this.quantidade = quantidade;
+    }
+    
     public String getNome() 
     {
         return nome;
