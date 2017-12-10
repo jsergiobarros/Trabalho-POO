@@ -43,39 +43,27 @@ public class Compra
         System.out.println("O valor total dos produtos selecionados foi de R$ " + this.valorAPagar);
         return this.valorAPagar;
     }  
-    
-   
-    
-  
-    public void TipoPagamento (){
-        int especie= 1,cartao = 2,cash = 200;
+      
+    public void TipoPagamento (double cash)
+    {
+        int especie= 1,cartao = 2;
         int operacao;
         Scanner entrada = new Scanner(System.in);
-        
         System.out.print("Escolha cartao ou dinheiro [1 ou 2 ]: ");
         operacao = entrada.nextLine().charAt(0);
         
-      
-
         switch( operacao )
         {
             case 1:
-                int troco;
-                Compra c = new Compra();
-                troco = c.valorAPagar - c.cash;
-                System.out.print(",troco);
+                double troco;
+                //Compra c = new Compra();
+                troco = this.valorAPagar - cash;
+                System.out.println("troco");
                 break;        
-                
             case 2:
-                
-                break;
-                
-           
+                break;   
             default:
                 System.out.printf("Você digitou uma operação inválida.");        
-            
         }
-        
-
     }
 }
