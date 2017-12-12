@@ -4,9 +4,11 @@ public class Produto
     private String nome;
     private String fornecedor;
     private String marca;
+    private int codigo;
     private int quantidade;
     private double precoDeCusto;
     private double precoDeVenda;
+
     
     public Produto(String no, String forn, String marca, int quantidade,double pcusto,double pvenda)
     {
@@ -20,6 +22,15 @@ public class Produto
     
     public Produto()
     {
+    }
+    
+    
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
     
     public int getQuantidade() 
