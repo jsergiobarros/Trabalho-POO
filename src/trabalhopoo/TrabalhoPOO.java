@@ -7,8 +7,9 @@ public class TrabalhoPOO {
         p1.setPrecoDeVenda(2.5);
         p1.comprarEstoque(p1, 25);
         Compra c1 = new Compra();
-        c1.valorDaCompra(p1);
-        //c1.TipoPagamento(1);
-        
+        c1.adicionarProduto(p1);
+        c1.valorproduto(p1);
+        c1.valorDaCompra();
+        c1.Pagamento(1);
     }
 }
