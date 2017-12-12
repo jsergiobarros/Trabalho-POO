@@ -1,11 +1,18 @@
 package trabalhopoo;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Compra 
 {    
     private double valorAPagar;
     private double valorPago;
+    private ArrayList<Produto> produtosDaCompra;
+    
+    public Compra ()
+    {
+        this.produtosDaCompra = new ArrayList<Produto>();
+    }
     
     public double getValorAPagar()
     {
@@ -18,42 +25,55 @@ public class Compra
         return this.valorPago;
     }
     
-    public double valorDaCompra(Produto ... objs)
+    public void adicionarProduto(Produto p)
     {
-        Compra c1 = new Compra();
-        if(objs.length > 0)
+        this.produtosDaCompra.add(p);
+    }
+    
+    public void removerProduto(Produto p)
+    {
+        this.produtosDaCompra.remove(p);   
+    }
+    
+    public void valorproduto(Produto prod)
+    {
+        Produto p;
+        p = (Produto) this.produtosDaCompra.get(this.produtosDaCompra.indexOf(prod));
+    }
+    
+    public double valorDaCompra()
+    {
+        Produto p;
+        for(int i = 0; i < this.produtosDaCompra.size();i++)
         {
-            for(int i = 0; i <= objs.length; i++ )
-            {
-                //c1.getValorAPagar() = c1.getValorAPagar() + objs[i].getPrecoDeVenda();
-            }
+            p=(Produto) this.produtosDaCompra.get(i);
+            this.valorAPagar = p.getPrecoDeVenda() + this.valorAPagar;                                   
         }
-        else
-        {
-            System.out.println("O cliente não escolheu nenhum produto");
-        }
-        System.out.println("O valor total dos produtos selecionados foi de R$ " + this.valorAPagar);
+        System.out.println(this.valorAPagar);
         return this.valorAPagar;
-    }  
+    }       
       
-    public void TipoPagamento (double cash)
+    public void Pagamento (int operacao)
     {
-        int especie= 1,cartao = 2;
-        int operacao;
+        int especie= 1,cartaoc = 2, cartaod = 3;
         Scanner entrada = new Scanner(System.in);
-        System.out.print("Escolha cartao ou dinheiro [1 ou 2 ]: ");
-        operacao = entrada.nextLine().charAt(0);
-        
+        Compra c = new Compra();
         switch( operacao )
         {
             case 1:
                 double troco;
-                //Compra c = new Compra();
-                troco = this.valorAPagar - cash;
-                System.out.println("troco");
+                double cash;
+                cash = entrada.nextDouble();
+                troco = cash - this.valorAPagar;
+                System.out.println("Compra realizada com sucesso! Volte sempre!");
+                System.out.println("Seu troco é R$ " + troco);
                 break;        
             case 2:
+                System.out.println("Compra realizada com sucesso! Volte sempre!");                
                 break;   
+            case 3:
+                System.out.println("Compra realizada com sucesso! Volte sempre!");                
+                break;                   
             default:
                 System.out.printf("Você digitou uma operação inválida.");        
         }
