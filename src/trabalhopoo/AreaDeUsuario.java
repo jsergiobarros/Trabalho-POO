@@ -23,7 +23,7 @@ public class AreaDeUsuario extends javax.swing.JFrame {
         jButtonProdutos = new javax.swing.JButton();
         jButtonCliente = new javax.swing.JButton();
         jButtonFuncionario = new javax.swing.JButton();
-        jButtonFornecedor = new javax.swing.JButton();
+        jButtonControle = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -86,9 +86,14 @@ public class AreaDeUsuario extends javax.swing.JFrame {
         getContentPane().add(jButtonFuncionario);
         jButtonFuncionario.setBounds(10, 70, 120, 23);
 
-        jButtonFornecedor.setText("FORNECEDORES");
-        getContentPane().add(jButtonFornecedor);
-        jButtonFornecedor.setBounds(10, 220, 120, 23);
+        jButtonControle.setText("CONTROLE");
+        jButtonControle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonControleActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonControle);
+        jButtonControle.setBounds(10, 220, 120, 23);
 
         jButtonSair.setText("SAIR");
         jButtonSair.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +147,12 @@ public class AreaDeUsuario extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButtonFuncionarioActionPerformed
 
+    private void jButtonControleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonControleActionPerformed
+        Acompanhamento acomp = new Acompanhamento();
+        acomp.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonControleActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -180,7 +191,7 @@ public class AreaDeUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButtonCliente;
-    private javax.swing.JButton jButtonFornecedor;
+    private javax.swing.JButton jButtonControle;
     private javax.swing.JButton jButtonFuncionario;
     private javax.swing.JButton jButtonProdutos;
     private javax.swing.JButton jButtonSair;
