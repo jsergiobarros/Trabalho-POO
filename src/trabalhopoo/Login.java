@@ -5,6 +5,7 @@
  */
 package trabalhopoo;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,6 +30,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel5 = new javax.swing.JLabel();
         jButtonEntrar = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -37,6 +39,10 @@ public class Login extends javax.swing.JFrame {
         jPasswordFieldSenha = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        antigo = new javax.swing.JCheckBox();
+        novo = new javax.swing.JCheckBox();
+
+        jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela de Login");
@@ -90,7 +96,26 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalhopoo/fundo.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 600, 460);
+        jLabel1.setBounds(0, 0, 490, 460);
+
+        antigo.setSelected(true);
+        antigo.setText("Login");
+        antigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                antigoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(antigo);
+        antigo.setBounds(500, 103, 90, 30);
+
+        novo.setText("Cadastrar");
+        novo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(novo);
+        novo.setBounds(500, 140, 90, 40);
 
         setSize(new java.awt.Dimension(615, 488));
         setLocationRelativeTo(null);
@@ -105,18 +130,70 @@ public class Login extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButtonSairActionPerformed
 
+    public class user{
+        String user,senha;
+        public user(String user,String senha){
+            this.user=user;
+            this.senha=senha;
+        }
+                
+       
+    }
+    ArrayList usuarios=new ArrayList();
+    static int cont=0;
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
     //botão acessar da tela de login
-    if(jTextFieldUsuario.getText().equals("admin") && jPasswordFieldSenha.getText().equals("abc123"))
-    {
-        AreaDeUsuario principal = new AreaDeUsuario();
-        principal.setVisible(true);
-        dispose();
-    }
-    else
-        JOptionPane.showMessageDialog(null, "Usuário ou senha inválido!(a)");
+    String usaux=jTextFieldUsuario.getText(),seaux=jPasswordFieldSenha.getText();
+    System.out.println(usaux+"  "+seaux);
+    if (alterna==true){
+        for(int i=0;i<usuarios.size();i++){
+            user u = (user) usuarios.get(i);
+            if(u.user==usaux){
+                if(u.senha==seaux){
+                    AreaDeUsuario principal = new AreaDeUsuario();
+                    principal.setVisible(true);
+                    dispose();
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "Senha inválida!");
+            }
+            else
+                JOptionPane.showMessageDialog(null, "Usuário inválido!");      
+        }
+        boolean vazio=false;
+        if (alterna==false){
+            for(int i=0;i<usuarios.size();i++){
+                user u = (user) usuarios.get(i);
+                if(u.user==usaux){
+                    JOptionPane.showMessageDialog(null, "Usuário já existente");
+                    vazio=true;
+                    break;
+                }
+            }
+            if (vazio==true)
+                usuarios.add(new user(usaux,seaux));
+            System.out.println(usuarios.size());
+        }
+
         
+        }    
     }//GEN-LAST:event_jButtonEntrarActionPerformed
+    boolean alterna=true;
+    private void antigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_antigoActionPerformed
+        antigo.setSelected(true);
+        novo.setSelected(false);
+        alterna=true;
+                System.out.println(alterna);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_antigoActionPerformed
+
+    private void novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoActionPerformed
+        novo.setSelected(true);
+        antigo.setSelected(false);
+        alterna=false;
+        System.out.println(alterna);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_novoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,13 +234,16 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox antigo;
     private javax.swing.JButton jButtonEntrar;
     private javax.swing.JButton jButtonSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField jPasswordFieldSenha;
     private javax.swing.JTextField jTextFieldUsuario;
+    private javax.swing.JCheckBox novo;
     // End of variables declaration//GEN-END:variables
 }
