@@ -35,7 +35,7 @@ public class Produto
     
     public int getQuantidade() 
     {
-        return quantidade;
+        return this.quantidade;
     }
 
     public void setQuantidade(int quantidade) 
