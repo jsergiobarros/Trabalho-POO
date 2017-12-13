@@ -21,14 +21,15 @@ public class AreaDeUsuario extends javax.swing.JFrame {
         menu8 = new java.awt.Menu();
         buttonGroup1 = new javax.swing.ButtonGroup();
         jButtonProdutos = new javax.swing.JButton();
-        jButtonFuncionario = new javax.swing.JButton();
         jButtonCliente = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jButtonFuncionario = new javax.swing.JButton();
+        jButtonFornecedor = new javax.swing.JButton();
         jButtonSair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
-        jButtonFornecedor = new javax.swing.JButton();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
@@ -56,6 +57,7 @@ public class AreaDeUsuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Área de Usuário");
+        getContentPane().setLayout(null);
 
         jButtonProdutos.setText("PRODUTOS");
         jButtonProdutos.addActionListener(new java.awt.event.ActionListener() {
@@ -63,8 +65,8 @@ public class AreaDeUsuario extends javax.swing.JFrame {
                 jButtonProdutosActionPerformed(evt);
             }
         });
-
-        jButtonFuncionario.setText("FUNCIONÁRIOS");
+        getContentPane().add(jButtonProdutos);
+        jButtonProdutos.setBounds(10, 120, 120, 23);
 
         jButtonCliente.setText("CLIENTE");
         jButtonCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -72,9 +74,21 @@ public class AreaDeUsuario extends javax.swing.JFrame {
                 jButtonClienteActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonCliente);
+        jButtonCliente.setBounds(10, 170, 120, 23);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel1.setText("PRINCIPAL");
+        jButtonFuncionario.setText("FUNCIONÁRIOS");
+        jButtonFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFuncionarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonFuncionario);
+        jButtonFuncionario.setBounds(10, 70, 120, 23);
+
+        jButtonFornecedor.setText("FORNECEDORES");
+        getContentPane().add(jButtonFornecedor);
+        jButtonFornecedor.setBounds(10, 220, 120, 23);
 
         jButtonSair.setText("SAIR");
         jButtonSair.addActionListener(new java.awt.event.ActionListener() {
@@ -82,66 +96,31 @@ public class AreaDeUsuario extends javax.swing.JFrame {
                 jButtonSairActionPerformed(evt);
             }
         });
+        getContentPane().add(jButtonSair);
+        jButtonSair.setBounds(510, 400, 57, 23);
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
-        jButtonFornecedor.setText("FORNECEDORES");
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(140, 70, 440, 180);
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setText("PRINCIPAL");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(270, 20, 94, 22);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalhopoo/pooo.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(10, 455, 122, 55);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonSair))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonProdutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonFornecedor, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                            .addComponent(jLabel2))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
-                                .addGap(332, 332, 332)))))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jButtonProdutos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonCliente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonFuncionario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonFornecedor))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(jButtonSair)
-                .addContainerGap())
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalhopoo/fundo.jpg"))); // NOI18N
+        jLabel3.setText("jLabelFundo");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 0, 599, 450);
 
-        setSize(new java.awt.Dimension(814, 437));
+        setSize(new java.awt.Dimension(615, 488));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -149,13 +128,19 @@ public class AreaDeUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonClienteActionPerformed
 
+    private void jButtonProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProdutosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonProdutosActionPerformed
+
     private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonSairActionPerformed
 
-    private void jButtonProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProdutosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonProdutosActionPerformed
+    private void jButtonFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFuncionarioActionPerformed
+        PrincipalFunci funcionario = new PrincipalFunci();
+        funcionario.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,8 +186,9 @@ public class AreaDeUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButtonSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextArea jTextArea1;
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
     private java.awt.Menu menu3;
