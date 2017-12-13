@@ -59,6 +59,11 @@ public class Estoque extends Produto
         return true;
     }
     
+    public String toString()
+    {
+        return "" + this.p1 + this.quantidadeMinima;
+    }
+    
     public void Entrada(Produto p, int quantidadeAComprar)
     {
         if(verificaEstoque(p) == true)

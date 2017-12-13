@@ -24,7 +24,11 @@ public class Produto
     {
     }
     
-    
+    public String toString()
+    {
+        return "" + this.nome + this.codigo + this.quantidade;        
+    }
+       
     public int getCodigo() {
         return codigo;
     }
