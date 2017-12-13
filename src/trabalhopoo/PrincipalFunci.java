@@ -11,7 +11,7 @@ public class PrincipalFunci extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        jTextPaneAcompanha = new javax.swing.JTextPane();
         jButtonCadastro = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
@@ -24,7 +24,7 @@ public class PrincipalFunci extends javax.swing.JFrame {
         setTitle("Funcionário");
         getContentPane().setLayout(null);
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jScrollPane1.setViewportView(jTextPaneAcompanha);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(130, 120, 430, 180);
@@ -158,7 +158,7 @@ public class PrincipalFunci extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextPane jTextPaneAcompanha;
     // End of variables declaration//GEN-END:variables
 
     private void jButton1(boolean b) {

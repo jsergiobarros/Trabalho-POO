@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package trabalhopoo;
-
-/**
- *
- * @author Alunos
- */
+import java.util.Scanner;
 public class Acompanhamento extends javax.swing.JFrame {
 
     /**
@@ -37,7 +28,7 @@ public class Acompanhamento extends javax.swing.JFrame {
         jButtonVoltar = new javax.swing.JButton();
         jButtonCliente = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaControle = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
 
         jScrollPane1.setViewportView(jTextPane1);
@@ -100,9 +91,9 @@ public class Acompanhamento extends javax.swing.JFrame {
         getContentPane().add(jButtonCliente);
         jButtonCliente.setBounds(30, 190, 90, 23);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        jTextAreaControle.setColumns(20);
+        jTextAreaControle.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaControle);
 
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(140, 100, 440, 110);
@@ -112,7 +103,8 @@ public class Acompanhamento extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 600, 450);
 
-        pack();
+        setSize(new java.awt.Dimension(615, 488));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVendasActionPerformed
@@ -121,8 +113,23 @@ public class Acompanhamento extends javax.swing.JFrame {
 
     private void jButtonEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEstoqueActionPerformed
         Estoque es = new Estoque();
-        
-        
+        Produto p = new Produto();
+        Scanner s = new Scanner(System.in);
+        String str = s.nextLine(); /* Vai pegar tudo até a primeira quebra de linha.
+                                     Garanta que o número é válido!*/
+        try 
+        {
+            int i = Integer.parseInt(str); // Caso você queira tipo int, que é o usual.
+        } 
+        catch (NumberFormatException e) 
+        {
+           System.out.println("Numero com formato errado!");
+        }
+        finally 
+        {
+           s.close(); //fechar o Scanner para gerenciar melhor a memória.
+        }
+        es.Entrada(p, jTextAreaControle.setText(Integer.parseInt(str)));
     }//GEN-LAST:event_jButtonEstoqueActionPerformed
 
     private void jButtonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteActionPerformed
@@ -185,7 +192,7 @@ public class Acompanhamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextAreaControle;
     private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 }

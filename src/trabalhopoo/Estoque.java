@@ -61,7 +61,7 @@ public class Estoque extends Produto
     
     public void Entrada(Produto p, int quantidadeAComprar)
     {
-        if(verificaEstoque(p))
+        if(verificaEstoque(p) == true)
         {
             double a;
             System.out.println("Você está programando a compra de " + quantidadeAComprar + " unidades do produto " + p.getNome());          
