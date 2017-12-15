@@ -5,6 +5,11 @@ public class Acompanhamento extends javax.swing.JFrame
     public Acompanhamento() {
         initComponents();
     }
+    AreaDeUsuario anterior;
+     public Acompanhamento(AreaDeUsuario anterior) {
+        initComponents();
+        this.anterior=anterior;
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -266,8 +271,8 @@ public class Acompanhamento extends javax.swing.JFrame
     }//GEN-LAST:event_jButtonSairActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        AreaDeUsuario principal = new AreaDeUsuario();
-        principal.setVisible(true);
+        
+        anterior.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 

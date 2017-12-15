@@ -132,14 +132,18 @@ public class Login extends javax.swing.JFrame {
 
     public class user{
         String user,senha;
+        AreaDeUsuario principal= new AreaDeUsuario();;
         public user(String user,String senha){
             this.user=user;
             this.senha=senha;
+         
         }
                 
        
     }
     ArrayList usuarios=new ArrayList();
+    
+    
     static int cont=0;
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
     //botão acessar da tela de login
@@ -150,9 +154,10 @@ public class Login extends javax.swing.JFrame {
             user u = (user) usuarios.get(i);
             if(u.user==usaux){
                 if(u.senha==seaux){
-                    AreaDeUsuario principal = new AreaDeUsuario();
-                    principal.setVisible(true);
-                    dispose();
+                    
+                    u.principal.setVisible(true);
+                    u.principal.anterior=this;
+                    this.setVisible(false);
                 }
                 else
                     JOptionPane.showMessageDialog(null, "Senha inválida!");
@@ -170,8 +175,9 @@ public class Login extends javax.swing.JFrame {
                     break;
                 }
             }
-            if (vazio==true)
+            if (vazio==true){
                 usuarios.add(new user(usaux,seaux));
+            }
             System.out.println(usuarios.size());
         }
 

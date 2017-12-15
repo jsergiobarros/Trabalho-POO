@@ -1,8 +1,22 @@
 package trabalhopoo;
+
+import java.util.ArrayList;
+
 public class AreaDeUsuario extends javax.swing.JFrame {
     public AreaDeUsuario() {
         initComponents();
     }
+    Login anterior;
+    
+    public AreaDeUsuario(Login l) {
+        initComponents();
+        this.anterior=l;
+        
+    }
+    
+    ArrayList cliente=new ArrayList();
+    ArrayList funcionarios=new ArrayList();
+    Estoque estoque;
    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -24,11 +38,12 @@ public class AreaDeUsuario extends javax.swing.JFrame {
         jButtonCliente = new javax.swing.JButton();
         jButtonFuncionario = new javax.swing.JButton();
         jButtonControle = new javax.swing.JButton();
-        jButtonSair = new javax.swing.JButton();
+        jButtonVoltar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButtonSair1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         menu1.setLabel("File");
@@ -95,14 +110,14 @@ public class AreaDeUsuario extends javax.swing.JFrame {
         getContentPane().add(jButtonControle);
         jButtonControle.setBounds(10, 220, 120, 23);
 
-        jButtonSair.setText("SAIR");
-        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVoltar.setText("Log out");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSairActionPerformed(evt);
+                jButtonVoltarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSair);
-        jButtonSair.setBounds(510, 400, 57, 23);
+        getContentPane().add(jButtonVoltar);
+        jButtonVoltar.setBounds(30, 390, 80, 40);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -120,6 +135,15 @@ public class AreaDeUsuario extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(10, 455, 122, 55);
 
+        jButtonSair1.setText("SAIR");
+        jButtonSair1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSair1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonSair1);
+        jButtonSair1.setBounds(510, 400, 57, 23);
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabalhopoo/fundo.jpg"))); // NOI18N
         jLabel3.setText("jLabelFundo");
         getContentPane().add(jLabel3);
@@ -131,27 +155,40 @@ public class AreaDeUsuario extends javax.swing.JFrame {
 
     private void jButtonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClienteActionPerformed
         // TODO add your handling code here:
+        
+        funcionario.setVisible(true);
+        funcionario.pessoa();
     }//GEN-LAST:event_jButtonClienteActionPerformed
 
     private void jButtonProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProdutosActionPerformed
+        
+        funcionario.setVisible(true);
+        funcionario.produto();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonProdutosActionPerformed
 
-    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jButtonSairActionPerformed
-
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        this.dispose(); 
+        anterior.setVisible(true);
+       
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
+PrincipalFunci funcionario = new PrincipalFunci(this);
     private void jButtonFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFuncionarioActionPerformed
-        PrincipalFunci funcionario = new PrincipalFunci();
+        
         funcionario.setVisible(true);
-        dispose();
+        funcionario.funcionario();
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonFuncionarioActionPerformed
 
     private void jButtonControleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonControleActionPerformed
-        Acompanhamento acomp = new Acompanhamento();
+        Acompanhamento acomp = new Acompanhamento(this);
         acomp.setVisible(true);
-        dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonControleActionPerformed
+
+    private void jButtonSair1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSair1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSair1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,7 +231,8 @@ public class AreaDeUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButtonControle;
     private javax.swing.JButton jButtonFuncionario;
     private javax.swing.JButton jButtonProdutos;
-    private javax.swing.JButton jButtonSair;
+    private javax.swing.JButton jButtonSair1;
+    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

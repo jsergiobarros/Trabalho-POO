@@ -3,6 +3,20 @@ public class Funcionario extends Pessoa
 {
         private String pis;
         private double totalEmVendas;
+        public Funcionario(String nome, String cpf,String logra,int num,String bair,String cidade)
+    {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.logradouro=logra;
+        this.estado=estado;
+        this.numero=num;
+        this.bairro=bair;
+        this.cidade=cidade;
+        
+        
+    }
+        
+        
         
         public void setPis(String p)
         {

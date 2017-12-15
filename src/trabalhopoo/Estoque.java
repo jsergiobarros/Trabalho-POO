@@ -8,6 +8,7 @@ public class Estoque
     private Produto p1;
     private int quantidadeMinima;
     private boolean verifica;
+    double caixa;
     ArrayList produtos = new ArrayList();
     ArrayList quantidades = new ArrayList();
     

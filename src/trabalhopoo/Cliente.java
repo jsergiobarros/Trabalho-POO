@@ -3,13 +3,19 @@ import java.util.ArrayList;
 public class Cliente extends Pessoa
 {
     private ArrayList<Cliente> novoCliente;
-    public Cliente(String nome, String cpf)
+    public Cliente(String nome, String cpf,String logra,int num,String bair,String cidade)
     {
         this.nome = nome;
         this.cpf = cpf;
-        System.out.println("Nome: " + this.nome + "| CPF: " + this.cpf);
+        this.logradouro=logra;
+        this.estado=estado;
+        this.numero=num;
+        this.bairro=bair;
+        this.cidade=cidade;
+        
+        
     }
-    
+    ArrayList compras=new ArrayList();
     public Cliente()
     {
         this.novoCliente = new ArrayList<Cliente>();
