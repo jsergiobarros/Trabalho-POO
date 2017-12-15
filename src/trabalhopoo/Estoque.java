@@ -1,10 +1,98 @@
 package trabalhopoo;
-public class Estoque extends Produto
+
+import java.util.ArrayList;
+
+public class Estoque
 {
+    private static int cod=1;
     private Produto p1;
     private int quantidadeMinima;
     private boolean verifica;
-
+    ArrayList produtos = new ArrayList();
+    ArrayList quantidades = new ArrayList();
+    
+    public boolean Saida(Produto p, int quantidade)
+    {   
+        int x=confere(p);
+        Produto aux;
+        if(x >= 0){
+            aux=(Produto)produtos.get(x);
+            if (aux.getQuantidade()<quantidade)
+                return false;
+            else{
+                aux.setQuantidade(aux.getQuantidade()-quantidade);
+                return true;
+            
+            } 
+        }
+            //Caso o estoque de determinado produto for menor ou igual 
+            //a quantidade minima, serão comprados mais daquele produto
+        else
+            return false;   
+    }
+    public boolean Entrada(Produto p, int quantidade,double valor){
+        
+        int x= confere(p);
+        double v;
+        Produto aux = (Produto)produtos.get(x);
+        System.out.println("preco "+aux.getPrecoDeVenda());
+        v=(aux.getQuantidade()*aux.getPrecoDeVenda()+quantidade*valor)/(aux.getQuantidade()+quantidade);
+        Entrada(p,quantidade);
+        aux.setPrecoDeVenda(v);
+        System.out.println("preco "+aux.getPrecoDeVenda());
+        return true;
+    }
+    
+    
+    public boolean Entrada(Produto p, int quantidade)
+    {   
+        int x=confere(p);
+        System.out.println(x+" "+produtos.size());
+        Produto aux;
+        
+        if(x>=0){
+            double v=0 ;
+            aux=(Produto)produtos.get(x);
+            aux.setQuantidade(aux.getQuantidade()+quantidade);
+            if(aux.getPrecoDeVenda()!=p.getPrecoDeVenda()){
+                
+                v = atualizaPreco(p,quantidade);
+                aux.setPrecoDeVenda(v);
+            }
+            System.out.println( "quantidade " +aux.getQuantidade()+" v "+v);
+            return true;
+        }
+        else{
+            p.setQuantidade(quantidade);
+            p.setCodigo(cod);
+            cod++;
+            produtos.add(p);
+            return true;
+        }
+    }
+    public double atualizaPreco(Produto p,int quantidade){
+        int x= confere(p);
+        double v;
+        Produto aux;
+        aux=(Produto)produtos.get(x);
+        v= (quantidade*p.getPrecoDeVenda()+aux.getQuantidade()*aux.getPrecoDeVenda())/(quantidade+aux.getQuantidade());
+        System.out.println(p.getPrecoDeVenda()+" teste "+aux.getPrecoDeVenda());
+        return v;
+        
+    }
+    
+    
+    
+    public int confere(Produto p){
+        Produto aux;
+        for(int i = 0;i<produtos.size();i++){
+            aux=(Produto) produtos.get(i);
+            if(aux.getNome().equals(p.getNome()))
+                return i;
+        }
+        return -1;
+    }
+    
     public boolean isVerifica() {
         return verifica;
     }
@@ -13,10 +101,7 @@ public class Estoque extends Produto
         this.verifica = verifica;
     }
 
-    public Estoque(String no, String forn, String marca, int quantidade, double pcusto,double pvenda)
-    {
-        super(no,forn,marca,quantidade,pcusto,pvenda);
-    }
+
     
     public Estoque()
     {
@@ -42,16 +127,7 @@ public class Estoque extends Produto
         return this.p1;
     }
     
-    public void Saida(Produto p, int quantidadeMinima)
-    {
-        if(p.getQuantidade() <= quantidadeMinima)
-        {
-            System.out.println("A quantidade do produto" + p.getNome() + "está acabando!");
-            //Caso o estoque de determinado produto for menor ou igual 
-            //a quantidade minima, serão comprados mais daquele produto
-            
-        }
-    }
+    
     
     public boolean verificaEstoque(Produto p)
     {
@@ -64,7 +140,7 @@ public class Estoque extends Produto
         return "" + this.p1 + this.quantidadeMinima;
     }
     
-    public void Entrada(Produto p, int quantidadeAComprar)
+    public void Entrada2(Produto p, int quantidadeAComprar)
     {
         if(verificaEstoque(p) == true)
         {
